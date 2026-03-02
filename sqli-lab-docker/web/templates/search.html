@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Blind Time-based</h2>
+  <p>Parámetro vulnerable: <code>q</code></p>
+  <p>Ejemplo: <code>/search?q=mug</code></p>
+
+  <details>
+    <summary>SQL ejecutada (preview)</summary>
+    <pre>{{ sql_preview }}</pre>
+  </details>
+
+  {% if err %}
+    <p class="bad">Error SQL: <code>{{ err }}</code></p>
+  {% endif %}
+
+  <p>Tiempo de respuesta (medido en servidor): <code>{{ "%.3f"|format(elapsed) }}s</code></p>
+  <p class="muted">La app NO muestra resultados, así que el canal es solo el tiempo.</p>
+</div>
+
+<div class="card">
+  <p><strong>Objetivo:</strong> confirmar SQLi por delay y extraer al menos 1 caracter del password del admin usando comparaciones + tiempo.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQLi Lab</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 16px; }
+    .nav a { margin-right: 12px; text-decoration: none; }
+    code, pre { background: #f4f4f4; padding: 2px 6px; border-radius: 6px; }
+    pre { padding: 12px; overflow: auto; }
+    .card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; margin: 12px 0; }
+    .ok { color: #0a7; font-weight: 600; }
+    .bad { color: #c22; font-weight: 600; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+    .muted { color: #666; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">Blind Boolean (Cookie)</a>
+    <a href="/products?category=Gifts">UNION-based</a>
+    <a href="/search?q=mug">Blind Time</a>
+    <a href="/account?id=1">Error-based</a>
+  </div>
+  <h1>SQLi Lab (Docker + MySQL)</h1>
+  <p class="muted">Laboratorio vulnerable para practicar 4 técnicas de SQL Injection.</p>
+  {% block content %}{% endblock %}
+</body>
+</html>

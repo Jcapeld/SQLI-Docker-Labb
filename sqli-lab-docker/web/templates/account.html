@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Error-based</h2>
+  <p>Parámetro vulnerable: <code>id</code> (se concatena sin comillas)</p>
+  <p>Ejemplo: <code>/account?id=1</code></p>
+
+  <details>
+    <summary>SQL ejecutada (preview)</summary>
+    <pre>{{ sql_preview }}</pre>
+  </details>
+
+  {% if err %}
+    <p class="bad">Error SQL (expuesto a propósito):</p>
+    <pre>{{ err }}</pre>
+  {% endif %}
+
+  {% if user %}
+    <p class="ok">Usuario:</p>
+    <ul>
+      <li><strong>id:</strong> {{ user.id }}</li>
+      <li><strong>username:</strong> {{ user.username }}</li>
+      <li><strong>email:</strong> {{ user.email }}</li>
+    </ul>
+  {% else %}
+    <p class="muted">No se encontró usuario con ese id.</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <p><strong>Objetivo:</strong> forzar un error que “filtre” información y exfiltrar el password del admin.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>UNION-based</h2>
+  <p>Parámetro vulnerable: <code>category</code></p>
+  <p>Ejemplo: <code>/products?category=Gifts</code></p>
+
+  <details>
+    <summary>SQL ejecutada (preview)</summary>
+    <pre>{{ sql_preview }}</pre>
+  </details>
+
+  {% if err %}
+    <p class="bad">Error SQL: <code>{{ err }}</code></p>
+  {% endif %}
+
+  {% if rows %}
+    <table>
+      <thead><tr><th>id</th><th>name</th><th>price</th></tr></thead>
+      <tbody>
+        {% for r in rows %}
+          <tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="muted">No hay resultados.</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <p><strong>Objetivo:</strong> descubrir nº de columnas y extraer el usuario <code>administrator</code> de la tabla <code>users</code>.</p>
+</div>
+{% endblock %}

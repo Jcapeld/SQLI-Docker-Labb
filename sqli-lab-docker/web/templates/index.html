@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Blind Boolean-based (Cookie)</h2>
+  <p>Cookie actual: <code>TrackingId={{ tracking }}</code></p>
+  {% if welcome %}
+    <p class="ok">Welcome back 👋 (la query devolvió filas)</p>
+  {% else %}
+    <p class="bad">No welcome 😶 (la query NO devolvió filas)</p>
+  {% endif %}
+  <details>
+    <summary>SQL ejecutada (preview)</summary>
+    <pre>{{ sql_preview }}</pre>
+  </details>
+</div>
+
+<div class="card">
+  <p><strong>Objetivo:</strong> inferir datos del usuario <code>administrator</code> usando TRUE/FALSE sin ver datos directamente.</p>
+  <p class="muted">Pista: tu único canal es que aparezca o no el “Welcome back”.</p>
+</div>
+{% endblock %}
