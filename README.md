@@ -32,4 +32,4 @@ docker compose up --build
 - Flag3 (Time):     primer caracter del password (time-based)
 - Flag4 (Error):    exfil completa del password (error-based)
 
-> Nota: no incluyo payloads aquí para que el lab se use de forma responsable.
+> Nota: no incluyo payloads aquí para que el lab se use de forma responsable. En el momento de ejecutar docker compose up --build, si hay algun error relacionada con que no existe la carpeta static en la ruta sqli-lab-docker/web. La podeis crear vosotros mismos en ese directorio y volver a ejecutar docker compose up --build
